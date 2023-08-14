@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavbarUser from '../components/NavbarUser';
 import { Link, useParams, useNavigate } from "react-router-dom"
+import Loader from '../components/Loader';
 
 
 const UserDashboard = ({ handleClick, size }) => {
@@ -18,24 +19,14 @@ const UserDashboard = ({ handleClick, size }) => {
     fetchProducts();
   }, [])
 
-  // const [cart, setCart] = useState([])
-
-  // const handleClick = (item)=>{
-  //  setCart([...cart, item])
-  //  cart.push(item)
-  //  console.log(cart);
-  // }
 
   return (
     <div>
       <NavbarUser size={size} />
       <div class='product-container container'>
-        <div class="add-product">
-          {/* <Link to="/addproduct" class="btn btn-warning text-white">Add your Product</Link> */}
-        </div>
         <div class="product">
           {
-            product.map((items) => {
+            product.length?product.map((items) => {
               return (
                 <li class='item' handleClick={handleClick}>
                   <img class="product-img" src={items.imageURL} alt="" />
@@ -55,21 +46,13 @@ const UserDashboard = ({ handleClick, size }) => {
                     <button class="btn btn-dark" onClick={() => handleClick(items)}>Add to cart</button>
                   </div>
 
-                </li>
+                </li> 
               )
             })
-          }
+          :<Loader/>}
 
 
-          {/* <li class=''>
-      1
-     </li>
-     <li class=''>
-      1
-     </li>
-     <li class=''>
-      1
-     </li> */}
+
 
         </div>
 

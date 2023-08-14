@@ -3,77 +3,42 @@ import { Link } from "react-router-dom"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const NavbarGeneral = () => {
- return (<>
-  {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar scroll</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Link
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Link</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav> */}
-  <div class="navbar-general">
-   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-     <a class="navbar-brand mt-2 mt-lg-0" >
-      <img
-       src=""
-       height="15"
-       alt="Logo"
-       loading="lazy"
-      />
-     </a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-     </button>
+    return (<>
+        <div class="navbar-general">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand mt-2 mt-lg-0" >
+                        <img
+                            src="https://img.icons8.com/?size=512&id=sFFBQN8kzSOS&format=png"
+                            width="50px"
+                            height="50px"
+                            alt="Logo"
+                            loading="lazy"
+                        />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-     <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-       <li class="nav-item">
-        <Link to="/registeruser" className="nav-link active" aria-current="page" >SignUp</Link>
-       </li>
-       <li class="nav-item">
-        <Link to="/login" className="nav-link active" aria-current="page" >Login</Link>
-       </li>
-       <li class="nav-item">
-        <Link to="/registerseller" className="nav-link active" aria-current="page" >Register as a Seller</Link>
-       </li>
-       <li class="nav-item">
-        <Link to="/loginseller" className="nav-link active" aria-current="page" >Login Seller</Link>
-       </li>
-      </ul>
-     </div>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                            <li class="nav-item">
+                                <Link to="/registeruser" className="nav-link active" aria-current="page" >SignUp</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to="/login" className="nav-link active" aria-current="page" >Login</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to="/registerseller" className="nav-link active" aria-current="page" >Register as a Seller</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to="/loginseller" className="nav-link active" aria-current="page" >Login Seller</Link>
+                            </li>
+                        </ul>
+                    </div>
 
 
-     <div class="d-flex align-items-center">
+                    {/* <div class="d-flex align-items-center">
       <a class="text-reset me-3" >
        <i class="fas fa-shopping-cart"></i>
       </a>
@@ -121,7 +86,7 @@ const NavbarGeneral = () => {
          alt="Black and White Portrait of a Man"
          loading="lazy"
         />
-        {/* <FontAwesomeIcon icon="fa-duotone fa-user" beatFade style={{ "--fa-primary-color": "#05b9f5", "--fa-secondary-color": "#05b9f5", }} /> */}
+        
        </a>
        <ul
         class="dropdown-menu dropdown-menu-end"
@@ -138,11 +103,11 @@ const NavbarGeneral = () => {
         </li>
        </ul>
       </div>
-     </div>
-    </div>
-   </nav>
-  </div>
- </>);
+     </div> */}
+                </div>
+            </nav>
+        </div>
+    </>);
 }
 
 

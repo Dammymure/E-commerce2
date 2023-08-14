@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import NavbarUser from '../components/NavbarUser';
 import axios from 'axios';
 import swal from "sweetalert"
+import NavbarSeller from '../components/NavbarSeller';
 
 const UserViewSingleProduct = () => {
  const [product, setProduct] = useState([])
@@ -22,8 +23,8 @@ const UserViewSingleProduct = () => {
  }, [])
 
  return (<div>
-  <NavbarUser />
-  <div className='row justify-content-center'>
+  <NavbarSeller />
+  <div className='row justify-content-center '>
    <div className='col-md-5 offset-md-1'>
     <div class="card">
      <div class="card-body text-dark text-center">

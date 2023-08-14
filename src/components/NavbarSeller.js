@@ -24,12 +24,13 @@ const NavbarSeller = () => {
 
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <a class="navbar-brand mt-2 mt-lg-0" >
-       <img
-        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-        height="15"
-        alt="MDB Logo"
-        loading="lazy"
-       />
+             <img
+               src="https://img.icons8.com/?size=512&id=sFFBQN8kzSOS&format=png"
+               width="50px"
+               height="50px"
+               alt="Logo"
+               loading="lazy"
+             />
       </a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        {/* <li class="nav-item">
@@ -54,7 +55,7 @@ const NavbarSeller = () => {
       </a>
 
       <div class="dropdown">
-       <a
+       {/* <a
         class="text-reset me-3 dropdown-toggle hidden-arrow"
 
         id="navbarDropdownMenuLink"
@@ -64,7 +65,7 @@ const NavbarSeller = () => {
        >
         <i class="fas fa-bell"></i>
         <span class="badge rounded-pill badge-notification bg-danger">1</span>
-       </a>
+       </a> */}
        <ul
         class="dropdown-menu dropdown-menu-end"
         aria-labelledby="navbarDropdownMenuLink"
@@ -100,9 +101,11 @@ const NavbarSeller = () => {
        </a>
        <ul class="dropdown-menu">
         <li>
+         <Link to={`/sellerdashboard`} class="dropdown-item">Home</Link>
+        </li>
+        <li>
          <Link to={`/sellerprofile/${seller._id}`} class="dropdown-item">Profile</Link>
         </li>
-        <li><a class="dropdown-item" href="#">Menu item</a></li>
         <hr />
         <li
          onClick={() => {

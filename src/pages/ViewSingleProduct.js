@@ -44,7 +44,7 @@ const ViewSingleProduct = () => {
     <div className='col-md-5'>
      <div class="card">
       <div class="card-body text-dark text-center">
-       <img src={product.imageURL} alt='' width={400} height={400} />
+       <img className='prod-img' src={product.imageURL} alt=''/>
        <h5 className='mt-3'>Name:  {product.name}</h5>
        <h5>Description: {product.description}</h5>
        <h5>Price:  {product.price}</h5>

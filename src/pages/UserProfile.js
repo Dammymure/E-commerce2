@@ -1,49 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import NavbarUser from '../components/NavbarUser';
+import Loader from '../components/Loader';
 
 const UserProfile = () => {
-
- const [user, setUser] = useState([])
- const navigate = useNavigate()
- const { id } = useParams()
+ const [user, setUser] = useState(null); // Initialize user as null
+ const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+ const navigate = useNavigate();
+ const { id } = useParams();
 
  // Fetch the API for individual product
-
  useEffect(() => {
   async function fetchSingleUser() {
-   const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${id}`)
-   const data = await response.json()
-   setUser(data)
-   console.log(data);
+   try {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${id}`);
+    const data = await response.json();
+    setUser(data);
+    setIsLoading(false); // Set isLoading to false after data is fetched
+    console.log(data);
+   } catch (error) {
+    console.error('Error fetching user data:', error);
+   }
   }
-  fetchSingleUser()
- }, [])
+  fetchSingleUser();
+ }, [id]); // Include id as a dependency
 
- return (<div>
-  <NavbarUser />
-  <div className='row justify-content-center mt-5'>
-   <div className='col-md-5'>
-    <div class="card">
-     <div class="card-body text-dark text-center">
-      <img src={user.imageURL} alt='' width={400} height={400} />
-      <h5 className='mt-3'>Name:  {user.fullname}</h5>
-      <h5>Email: {user.email}</h5>
-      <h5>Phone:  {user.phone}</h5>
-      <div class="">
-       <Link to={`/edituserprofile/${id}`} class="btn btn-warning text-white m-2">Edit User Profile</Link>
-
-
-       {/* <button class="btn btn-danger m-2" onClick={() => deleteProduct(product._id)}>Delete
-       </button> */}
+ return (
+  <div>
+   <NavbarUser />
+   {isLoading ? ( // Use ternary operator for conditional rendering
+    <Loader /> // Display loader when isLoading is true
+   ) : (
+    <div className='row justify-content-center mt-5 container'>
+     <div className='col-md-5'>
+      <div class='card'>
+       <div class='card-body text-dark text-center'>
+        <img className='prof-img' src={user.imageURL} alt='' />
+        <h5 className='mt-3'>Name: {user.fullname}</h5>
+        <h5>Email: {user.email}</h5>
+        <h5>Phone: {user.phone}</h5>
+        <div class=''>
+         <Link to={`/edituserprofile/${id}`} class='btn btn-warning text-white m-2'>
+          Edit User Profile
+         </Link>
+        </div>
+       </div>
       </div>
-
      </div>
     </div>
-   </div>
+   )}
   </div>
- </div>)
-}
-
+ );
+};
 
 export default UserProfile;

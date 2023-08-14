@@ -3,7 +3,7 @@ import Carousel from '../components/Carousel';
 import NavbarGeneral from '../components/NavbarGeneral';
 
 const Home = () => {
- const sliders = ["Become a Seller", "Buy the best products", "Your one and only marketplace"];
+ const sliders = ["Become a Seller", "Buy the best products", "Your one and only market place"];
  const [currentSlider, setCurrentSlider] = useState(0);
 
  useEffect(() => {
@@ -17,14 +17,17 @@ const Home = () => {
 
  return (<div class="home-page">
   <NavbarGeneral />
-  <div class="row first-slide">
-
+  <div class=" first-slide container-fluid">
+   <div className='row first-slide'>
    <div class="col-md-5 offset-md-1 mt-5">
 
     <h1 class="headliner">{sliders[currentSlider]}</h1>
    </div>
    <div class="col-md-5 onset-md-1  "><iframe class="animation" src="https://embed.lottiefiles.com/animation/28183"></iframe>
    </div>
+
+   </div>
+
 
   </div>
 
