@@ -37,7 +37,7 @@ const SellerDashboard = () => {
               Add your Product
             </Link>
           </div>
-          <div class='product'>
+          <div class={`${product.length ? "product" : ""}`}>
             {isLoading ? ( // Use ternary operator for conditional rendering
               <Loader /> // Display loader when isLoading is true
             ) : (

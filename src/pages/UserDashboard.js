@@ -24,7 +24,7 @@ const UserDashboard = ({ handleClick, size }) => {
     <div>
       <NavbarUser size={size} />
       <div class='product-container container'>
-        <div class="product">
+        <div class={`${product.length ?"product":""}`}>
           {
             product.length?product.map((items) => {
               return (
