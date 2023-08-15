@@ -43,7 +43,6 @@ const Home = () => {
      <div class="card each " >
       <div className='green'>
        <iframe src="https://embed.lottiefiles.com/animation/57048" class="card-img-top"></iframe>
-       {/* <img src="https://lottiefiles.com/57048-sell-button" class="card-img-top" alt="..." /> */}
       </div>
       <div class="card-body">
        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.

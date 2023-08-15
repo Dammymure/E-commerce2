@@ -38,8 +38,8 @@ const SellerDashboard = () => {
             </Link>
           </div>
           <div class={`${product.length ? "product" : ""}`}>
-            {isLoading ? ( // Use ternary operator for conditional rendering
-              <Loader /> // Display loader when isLoading is true
+            {isLoading ? (
+              <Loader /> 
             ) : (
               product.map((items) => {
                 return (
@@ -65,7 +65,7 @@ const SellerDashboard = () => {
                       >
                         View
                       </button>
-                      {/* <button class="btn btn-dark">Add</button> */}
+                      
                     </div>
                   </li>
                 );

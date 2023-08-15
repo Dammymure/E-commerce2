@@ -12,24 +12,12 @@ const AddProduct = () => {
  const [quantity, setQuantity] = useState('')
  const [imageURL, setImageURL] = useState('')
 
- // const [product, setProduct] = useState({
- //   name: "",
- //   description: "",
- //   price: "",
- //   quantity: "",
- //   imageURL: ""
- // })
+
 
  // To navigate to a page 
  const navigate = useNavigate()
 
 
- // Create a function for the handle input
- // const handleInputs = (e) => {
- //   const name = e.target.name;
- //   const value = e.target.value;
- //   setProduct({ ...product, [name]: value })
- // }
 
 
  // Create a function for handle submit

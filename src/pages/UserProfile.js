@@ -23,13 +23,13 @@ const UserProfile = () => {
    }
   }
   fetchSingleUser();
- }, [id]); // Include id as a dependency
+ }, [id]); 
 
  return (
   <div>
    <NavbarUser />
-   {isLoading ? ( // Use ternary operator for conditional rendering
-    <Loader /> // Display loader when isLoading is true
+   {isLoading ? (
+    <Loader /> 
    ) : (
     <div className='row justify-content-center mt-5 container'>
      <div className='col-md-5'>

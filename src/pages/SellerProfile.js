@@ -3,11 +3,12 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 import NavbarSeller from '../components/NavbarSeller';
-import Loader from '../components/Loader'; // Make sure to import the Loader component
+import Loader from '../components/Loader';
 
 const SellerProfile = () => {
- const [seller, setSeller] = useState(null); // Initialize seller as null
- const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+ const [seller, setSeller] = useState(null); 
+ const [isLoading, setIsLoading] = useState(true); 
+ 
  const navigate = useNavigate();
  const { id } = useParams();
 
@@ -18,20 +19,20 @@ const SellerProfile = () => {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/seller/${id}`);
     const data = await response.json();
     setSeller(data);
-    setIsLoading(false); // Set isLoading to false after data is fetched
+    setIsLoading(false);
     console.log(data);
    } catch (error) {
     console.error('Error fetching seller data:', error);
    }
   }
   fetchSingleSeller();
- }, [id]); // Include id as a dependency
+ }, [id]); 
 
  return (
   <div>
    <NavbarSeller />
-   {isLoading ? ( // Use ternary operator for conditional rendering
-    <Loader /> // Display loader when isLoading is true
+   {isLoading ? ( 
+    <Loader /> 
    ) : (
     <div className='row justify-content-center mt-5'>
      <div className='col-md-5'>

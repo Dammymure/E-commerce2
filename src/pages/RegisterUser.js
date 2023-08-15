@@ -1,114 +1,159 @@
 import React, { useState } from 'react';
 import NavbarGeneral from '../components/NavbarGeneral';
-import swal from "sweetalert"
+import swal from 'sweetalert';
 import axios from 'axios';
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate, Link } from 'react-router-dom';
 
 const RegisterUser = () => {
-
   const [user, setUser] = useState({
-    fullname: "",
-    email: "",
-    password: "",
-    phone: "",
-    imageURL: "",
-  })
+    fullname: '',
+    email: '',
+    password: '',
+    phone: '',
+    imageURL: '',
+  });
 
   // Create a function for the handle input
   const handleInputs = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUser({ ...user, [name]: value })
-  }
+    setUser({ ...user, [name]: value });
+  };
 
-  // To navigate to login in after registering
-  const navigate = useNavigate()
+  // Create a function for handling image upload
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+  };
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setUser({ ...user, imageURL: reader.result });
+    };
+  };
+
+  // To navigate to login after registering
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (user.fullname === "" || user.email === "" || user.password === "" || user.phone === "" || user.imageURL === "") {
-      swal("Empty fields", "Fill the require fields", "error")
-    }
-    else {
-      axios.post(`${process.env.REACT_APP_API_URL}/users/create`, user)
+    if (
+      user.fullname === '' ||
+      user.email === '' ||
+      user.password === '' ||
+      user.phone === '' ||
+      user.imageURL === ''
+    ) {
+      swal('Empty fields', 'Fill the required fields', 'error');
+    } else {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/users/create`, user)
         .then((response) => {
-          swal(response.data.msg === "You have been registered" ? "Succesfully Registered" : "Seller already exists",
+          swal(
+            response.data.msg === 'You have been registered'
+              ? 'Successfully Registered'
+              : 'User already exists',
             response.data.msg,
-            response.data.msg === "You have been registered" ? "success" : "error")
-          navigate("/login")
-        }).catch((err) => {
-          console.log(err)
+            response.data.msg === 'You have been registered' ? 'success' : 'error'
+          );
+          navigate('/login');
         })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  }
+  };
 
+  return (
+    <div>
+      <NavbarGeneral />
+      <div className="container-fluid register">
+        <div className="row">
+          <div className="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            <h3>Welcome</h3>
+            <p>Create an account under 30 seconds NOW!</p>
+            <Link to="/login">
+              <button className="log-btn">Login</button>
+            </Link>
+            <br />
+          </div>
+          <div className="col-md-9 register-right">
+            <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
+              {/* ...existing code... */}
+            </ul>
+            <div className="tab-content" id="myTabContent">
+              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <h3 className="register-heading">Apply as a User</h3>
+                <form className="row register-form" onSubmit={handleSubmit}>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Fullname *"
+                        name="fullname"
+                        value={user.fullname}
+                        onChange={handleInputs}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Password *"
+                        name="password"
+                        value={user.password}
+                        onChange={handleInputs}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Your Email *"
+                        name="email"
+                        value={user.email}
+                        onChange={handleInputs}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Your Phone *"
+                        name="phone"
+                        value={user.phone}
+                        onChange={handleInputs}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Image URL or Upload *</label>
 
-  return (<div>
-    <NavbarGeneral />
-    <div class="container-fluid register">
-      <div class="row">
-        <div class="col-md-3 register-left">
-          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-          <h3>Welcome</h3>
-          <p>Create an account under 30 seconds NOW!</p>
-          <Link to="/login"><button  className='log-btn'>Login</button></Link>
-          {/* <input type="submit" name="" value="login" /> */}
-          <br />
-        </div>
-        <div class="col-md-9 register-right">
-          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <h3 class="register-heading">Apply as a User</h3>
-
-              <form class="row register-form" onSubmit={handleSubmit}>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Fullname *"
-                      name="fullname"
-                      value={user.fullname}
-                      onChange={handleInputs} />
+                      <input
+                        type="file"
+                        className="form-control"
+                        name="imageURL"
+                        onChange={handleImage}
+                      />
+                    </div>
+                    <button type="submit" className="btn btn-primary btnRegister">
+                      Register
+                    </button>
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password *"
-                      name="password"
-                      value={user.password}
-                      onChange={handleInputs} />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email *"
-                      name="email"
-                      value={user.email}
-                      onChange={handleInputs} />
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Phone *"
-                      name="phone"
-                      value={user.phone}
-                      onChange={handleInputs} />
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Image URL *"
-                      name="imageURL"
-                      value={user.imageURL}
-                      onChange={handleInputs} />
-                  </div>
-                  <button type='submit' class="btn btn-primary btnRegister">Register</button>
-                  {/* <input type="submit" class="btnRegister" value="Register" /> */}
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>);
-}
-
+  );
+};
 
 export default RegisterUser;

@@ -35,8 +35,6 @@ const UserViewSingleProduct = () => {
       <div class="">
        <Link to={`/editproduct/${product._id}`} class="btn btn-warning text-white m-2">Edit Product</Link>
 
-
-       {/* <button class="btn btn-danger m-2" onClick={() => deleteProduct(product._id)}>Delete</button> */}
       </div>
 
      </div>

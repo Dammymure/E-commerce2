@@ -50,19 +50,6 @@ const Cart = ({ cart, setCart }) => {
   loadCartFromLocalStorage();
  }, []);
 
- // useEffect(() => {
- //  const handleBeforeUnload = (event) => {
- //   event.preventDefault();
- //   event.returnValue = '';
- //  };
-
- //  window.addEventListener('beforeunload', handleBeforeUnload);
-
- //  return () => {
- //   window.removeEventListener('beforeunload', handleBeforeUnload);
- //  };
- // }, []);
-
  return (<div>
   <article>
    {cart?.map((item) => (
