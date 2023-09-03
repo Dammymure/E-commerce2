@@ -10,7 +10,15 @@ const sellerRouter = require('./route/SellerRoute')
 const productRouter = require("./route/ProductRoute")
 
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://e-commerce2-cyan.vercel.app',  // Specify the allowed origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow cookies and authorization headers
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
+
+
 // const userRouter = require("./route/UserRoute")
 // const sellerRouter = require('./route/SellerRoute')
 // const productRouter = require("./route/ProductRoute")
