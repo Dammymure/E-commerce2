@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import swal from "sweetalert"
 import NavbarSeller from '../components/NavbarSeller';
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
 
@@ -12,13 +12,8 @@ const AddProduct = () => {
  const [quantity, setQuantity] = useState('')
  const [imageURL, setImageURL] = useState('')
 
-
-
  // To navigate to a page 
  const navigate = useNavigate()
-
-
-
 
  // Create a function for handle submit
  const handleSubmit = (e) => {

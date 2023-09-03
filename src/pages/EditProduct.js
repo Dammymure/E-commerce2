@@ -36,7 +36,7 @@ const EditProduct = () => {
 
   // Update the product
   async function updateProduct() {
-   await axios.put(`http://localhost:9000/api/products/update/${id}`, { product, imageURL })
+    await axios.put(`${process.env.REACT_APP_API_URL}/products/update/${id}`, { product, imageURL })
     .then((response) => {
      if (response.data.msg === "Product successfully updated") {
       console.log("YES");
