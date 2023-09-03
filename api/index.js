@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI)
   })
 
 
-app.use(express.json())
+// app.use(express.json())
 
 // middlewae for user router
 app.use("/api", userRouter)
@@ -35,6 +35,15 @@ app.use("/api", sellerRouter)
 // middlewae for user router
 app.use("/api", productRouter)
 
+
+// Configure body-parser middleware
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+
+// Increase the payload limit to 10MB (adjust as needed)
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 if (process.env.API_PORT) {
   app.listen(process.env.API_PORT, () => {
