@@ -65,6 +65,7 @@ const LoginSeller = () => {
        <div class="title_container">
         <p class="title">Login to your Seller Account</p>
         <span class="subtitle">Get started with our app, just create an account and enjoy the experience.</span>
+        <p>email: text@gmail.com password: test</p>
        </div>
        <br />
        <div class="input_container">
