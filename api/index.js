@@ -11,12 +11,15 @@ const productRouter = require("./route/ProductRoute")
 
 
 const corsOptions = {
-  origin: 'https://e-commerce2-cyan.vercel.app',  // Specify the allowed origin
+  // origin: 'https://e-commerce2-cyan.vercel.app',  
+  origin: 'http://localhost:3001/',  
+  // Specify the allowed origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies and authorization headers
   optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
+// app.use(cors());
 
 
 // const userRouter = require("./route/UserRoute")
@@ -34,7 +37,7 @@ mongoose.connect(process.env.MONGO_URI)
   })
 
 
-// app.use(express.json())
+app.use(express.json())
 
 // middlewae for user router
 app.use("/api", userRouter)
@@ -50,8 +53,6 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 
 // Increase the payload limit to 10MB (adjust as needed)
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 if (process.env.API_PORT) {
   app.listen(process.env.API_PORT, () => {

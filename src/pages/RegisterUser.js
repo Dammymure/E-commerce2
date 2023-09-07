@@ -62,6 +62,7 @@ const RegisterUser = () => {
           navigate('/login');
         })
         .catch((err) => {
+          swal("Error", "An error occured", "ERROR")
           console.log(err);
         });
     }
