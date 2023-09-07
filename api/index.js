@@ -11,8 +11,8 @@ const productRouter = require("./route/ProductRoute")
 
 
 const corsOptions = {
-  // origin: 'https://e-commerce2-cyan.vercel.app',  
-  origin: 'http://localhost:3001/',  
+  origin: 'https://e-commerce2-cyan.vercel.app',
+  // origin: 'http://localhost:3001/',  
   // Specify the allowed origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies and authorization headers
