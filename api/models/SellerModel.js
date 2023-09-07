@@ -21,7 +21,7 @@ const sellerSchema = new mongoose.Schema({
  },
  imageURL: {
   type: String,
-  required: [true, "Please enter photo"]
+  // required: [true, "Please enter photo"]
  },
 },
  {

@@ -9,8 +9,8 @@ const RegisterSeller = () => {
     fullname: '',
     email: '',
     password: '',
-    phone: '',
-    imageURL: '',
+    phone: ''
+    // ,imageURL: '',
   });
 
   // Create a function for the handle input
@@ -21,18 +21,18 @@ const RegisterSeller = () => {
   };
 
   // Create a function for handling image upload
-  const handleImage = (e) => {
-    const file = e.target.files[0];
-    setFileToBase(file);
-  };
+  // const handleImage = (e) => {
+  //   const file = e.target.files[0];
+  //   setFileToBase(file);
+  // };
 
-  const setFileToBase = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setSeller({ ...seller, imageURL: reader.result });
-    };
-  };
+  // const setFileToBase = (file) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onloadend = () => {
+  //     setSeller({ ...seller, imageURL: reader.result });
+  //   };
+  // };
 
   // To navigate to login after registering
   const navigate = useNavigate();
@@ -44,8 +44,8 @@ const RegisterSeller = () => {
       seller.fullname === '' ||
       seller.email === '' ||
       seller.password === '' ||
-      seller.phone === '' ||
-      seller.imageURL === ''
+      seller.phone === '' 
+      // || seller.imageURL === ''
     ) {
       swal('Empty fields', 'Fill the required fields', 'error');
     } else {
@@ -131,7 +131,7 @@ const RegisterSeller = () => {
                         onChange={handleInputs}
                       />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label>Image URL or Upload *</label>
                       <input
                         type="file"
@@ -140,7 +140,7 @@ const RegisterSeller = () => {
                         // value={seller.imageURL}
                         onChange={handleImage}
                       />
-                    </div>
+                    </div> */}
                     <input type="submit" className="btnRegister" value="Register" />
                   </div>
                 </form>

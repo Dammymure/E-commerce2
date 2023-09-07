@@ -21,18 +21,18 @@ const RegisterUser = () => {
   };
 
   // Create a function for handling image upload
-  const handleImage = (e) => {
-    const file = e.target.files[0];
-    setFileToBase(file);
-  };
+  // const handleImage = (e) => {
+  //   const file = e.target.files[0];
+  //   setFileToBase(file);
+  // };
 
-  const setFileToBase = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setUser({ ...user, imageURL: reader.result });
-    };
-  };
+  // const setFileToBase = (file) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onloadend = () => {
+  //     setUser({ ...user, imageURL: reader.result });
+  //   };
+  // };
 
   // To navigate to login after registering
   const navigate = useNavigate();
@@ -44,8 +44,8 @@ const RegisterUser = () => {
       user.fullname === '' ||
       user.email === '' ||
       user.password === '' ||
-      user.phone === '' ||
-      user.imageURL === ''
+      user.phone === '' 
+      // || user.imageURL === ''
     ) {
       swal('Empty fields', 'Fill the required fields', 'error');
     } else {
@@ -83,7 +83,7 @@ const RegisterUser = () => {
           </div>
           <div className="col-md-9 register-right">
             <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
-              {/* ...existing code... */}
+              
             </ul>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -132,7 +132,7 @@ const RegisterUser = () => {
                         onChange={handleInputs}
                       />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label>Image URL or Upload *</label>
 
                       <input
@@ -141,7 +141,7 @@ const RegisterUser = () => {
                         name="imageURL"
                         onChange={handleImage}
                       />
-                    </div>
+                    </div> */}
                     <button type="submit" className="btn btn-primary btnRegister">
                       Register
                     </button>
